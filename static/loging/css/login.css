@@ -1,0 +1,117 @@
+.login{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.login_inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+}
+
+.error_msg{
+    margin: 5px 0;
+    color: red;
+    text-align: left;
+    width: 78%;
+    margin-bottom: 10px;
+}
+
+.welcome_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+    text-align: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.block_login{
+    max-width: 30%;
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 50px 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_form{
+    width: 100%;
+}
+
+.checkbox{
+    display: flex;
+    padding: 5px;
+    width: 78%;
+    margin-bottom: 10px;
+}
+
+.check-input{
+    padding: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.ckeck-label{
+    width: 100%;
+    display: block;
+    color: #cccccc;
+    text-align: left;
+}
+
+.signup-input{
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 75% ;
+}
+
+.signup-input::placeholder {
+  color: #cccccc; /* Цвет плейсхолдера */
+}
+
+.login_btn{
+    width: 79%;
+    margin-top: 20px;
+    background-color: #01BD79;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .3s;
+}
+
+.login_btn:hover{
+    background-color: #009660;
+}
+
+.add_links{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.add_link{
+    text-decoration: none;
+    color: #cccccc;
+    transition: all .3s;
+}
+
+.add_link:hover{
+    color: #999999;
+}

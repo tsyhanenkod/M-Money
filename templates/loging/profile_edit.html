@@ -1,0 +1,73 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'loging/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'transactions/css/transactions.css' %}">
+
+    <div class="profile">
+        <div class="container">
+            <div class="profile_inner">
+                <div class="sec_nav">
+                    <a href="{% url 'profile' %}" class="back_home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5b5b5b" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                        </svg>
+                        Back
+                    </a>
+                    <form class="delete_profile" method="post" action="{% url 'delete_profile' user.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="del_profile_btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
+                              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                            </svg>
+                            Delete forever
+                        </button>
+                    </form>
+                </div>
+
+                <div class="forms_block">
+                    <div class="forms_block_inner">
+                        <form method="post" class="change_user_data_form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form_label" for="user_first_name">First name</label>
+                                <input id="user_first_name" type="text" class="form_input" name="first_name" value="{{user.first_name}}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form_label" for="user_last_name">Last name</label>
+                                <input id="user_last_name" type="text" class="form_input" name="last_name" value="{{user.last_name}}">
+                            </div>
+                            <div class="form-group">
+                                <label class="form_label" for="user_email">Email</label>
+                                <input id="user_email" type="email" class="form_input" name="email" value="{{user.email}}">
+                            </div>
+                            <button class="change_pass_btn" type="submit" name="change_user_data">Save</button>
+                        </form>
+
+                        <form class="change_password_form" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form_label" for="current_password">Current password</label>
+                                <input id="current_password" type="password" class="form_input" name="current_password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form_label" for="new_password">New password</label>
+                                <input id="new_password" type="password" class="form_input" name="new_password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form_label" for="new_password_confirmation">New password confirmation</label>
+                                <input id="new_password_confirmation" type="password" class="form_input" name="new_password_confirmation">
+                            </div>
+
+                            <button class="change_pass_btn" type="submit" name="change_password">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

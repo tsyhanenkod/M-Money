@@ -1,0 +1,177 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'loging/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+<link rel="stylesheet" href="{% static 'transactions/css/transactions.css' %}">
+
+<div class="history trans_history">
+    <div class="container">
+        <div class="transactions" id="transaction-list">
+            <div class="sec_nav">
+                <a href="{% url 'accounts' %}" class="back_home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5b5b5b" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                    Back
+                </a>
+                <a class="create_payment" href="{% url 'payment' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    <h3 class="create_name">Transaction</h3>
+                </a>
+            </div>
+
+            <div class="trans_filters">
+                <div class="trans_filters_inner">
+                    <form class="filter_form" method="GET" action="">
+                        <div class="form_filter">
+                            <p class="label_filter">Account</p>
+                            <select class="filter_select" name="account">
+                                {% for option in filter_form.account.field.choices %}
+                                    <option value="{{ option.0 }}" {% if filter_form.account.value == option.0 %}selected{% endif %}>{{ option.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form_filter">
+                            <p class="label_filter">Type</p>
+                            <select class="filter_select" name="type">
+                                {% for value, label in filter_form.TRANSACTION_TYPES %}
+                                    <option value="{{ value }}" {% if filter_form.type.value == value %}selected{% endif %}>{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form_filter">
+                            <p class="label_filter">Category</p>
+                            <select class="filter_select" name="category">
+                                {% for option in filter_form.category.field.choices %}
+                                    <option value="{{ option.0 }}" {% if filter_form.category.value == option.0 %}selected{% endif %}>{{ option.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form_filter">
+                            <p class="label_filter">Period</p>
+                            <input class="form_input" type="date" name="start_date" value="{{ filter_form.start_date.value }}" placeholder="Start Date">
+                            <p class="between">-</p>
+                            <input class="form_input" type="date" name="end_date" value="{{ filter_form.end_date.value }}" placeholder="End Date">
+                        </div>
+
+                        <button class="search_btn" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="output_data">
+                <p class="income_value">All income: <span>{{total_income}}</span> uah</p>
+                <p class="spend_value">All spends: <span>-{{total_expense}}</span> uah</p>
+                <p class="income_value">Average income per day: <span>{{average_income_per_day}}</span> uah</p>
+                <p class="spend_value">Average spend per day: <span>-{{average_expense_per_day}}</span> uah</p>
+            </div>
+
+
+            <div id="transactions-container">
+                {% for transaction_date, transactions in transactions_by_date.items %}
+                    {% if transaction_date == today %}
+                        <h3 class="trans_info">Today</h3>
+                    {% elif transaction_date == yesterday %}
+                        <h3 class="trans_info">Yesterday</h3>
+                    {% else %}
+                        <h3 class="trans_info">{{ transaction_date }}</h3>
+                    {% endif %}
+
+                    {% for transaction in transactions %}
+                        <div class="transaction">
+                            <h4 class="trans_id">ID {{ transaction.transaction_id }}</h4>
+                            {% if transaction.transaction_type == "income" %}
+                            <div class="acc_data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#01BD79" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                                </svg>
+                                {{ transaction.account }}
+                            </div>
+                            {% elif transaction.transaction_type == "spend" %}
+                            <div class="acc_data">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                                </svg>
+                                {{ transaction.account }}
+                            </div>
+
+                            {% endif %}
+                            <h4 class="trans_category">{{ transaction.category }}</h4>
+                            <h4 class="trans_amount">{{ transaction.amount }} <span>UAH</span></h4>
+                            {% if transaction.comment == None %}
+                            <h4 class="trans_comment"></h4>
+                            {% else %}
+                            <h4 class="trans_comment">{{ transaction.comment }}</h4>
+                            {% endif %}
+                            <h4 class="trans_date">{{ transaction.datetime|date }}</h4>
+
+                            <div class="trans_buttons">
+                                <form class="edit_transaction" method="post" action="{% url 'edit_transaction' transaction.id %}">
+                                    {% csrf_token %}
+                                    <button class="ed_btn" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                          <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                                <form class="delete_transaction" method="post" action="{% url 'delete_transaction' transaction.id %}">
+                                    {% csrf_token %}
+                                    <button class="del_btn" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% empty %}
+                    <h1 class="no_trans no_trans_history">No transactions yet</h1>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pagination">
+            <div class="step-links">
+                {% if transactions.has_previous %}
+                <a class="pag-arrow" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}{% if not forloop.last %}&{% endif %}{% endif %}{% endfor %}&page={{ transactions.previous_page_number }}">
+                    <img class="arrow-img" src="{% static 'transactions/icons/arrow-left.png' %}" alt="">
+                </a>
+                {% endif %}
+
+                {% if transactions.paginator.num_pages > 1 %}
+                <ul class="pagination-list">
+                    {% for page_num in transactions.paginator.page_range %}
+                        {% if transactions.number == page_num %}
+                        <li class="pagination-item active-pag">{{ page_num }}</li>
+                        {% else %}
+                        <li class="pagination-item">
+                            <a class="pag-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}{% if not forloop.last %}&{% endif %}{% endif %}{% endfor %}&page={{ page_num }}">{{ page_num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if transactions.has_next %}
+                <a class="pag-arrow" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}{% if not forloop.last %}&{% endif %}{% endif %}{% endfor %}&page={{ transactions.next_page_number }}">
+                    <img class="arrow-img" src="{% static 'transactions/icons/arrow-right.png' %}" alt="">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

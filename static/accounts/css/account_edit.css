@@ -1,0 +1,92 @@
+.account_edit{
+    margin: 30px 0;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53vh;
+}
+
+.account_card{
+    width: 100%;
+}
+
+.editable_block{
+    position: relative;
+    width: 300px;
+    margin: 30px 0;
+}
+
+
+.card_edit{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.acc_edit_input{
+    background-color: #009660;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 96%;
+    font-size: 16px;
+    color: white;
+}
+
+.save_btn, .save_acc_btn{
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #01BD79;
+    background-color: white;
+    transition: all .3s;
+}
+
+.save_btn:hover{
+    background-color: #009660;
+    color: white;
+}
+
+.save_acc_btn:hover{
+    background-color: #009660;
+    color: white;
+}
+
+.save_acc_btn{
+    right: 20px;
+}
+
+.delete_btn{
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 5px 15px;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    transition: all .3s;
+}
+
+.delete_btn:hover{
+    background-color: darkred;
+}
+
+.name-input{
+    margin-bottom: 10px;
+}
+
+.edit_label{
+    color: white;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 700;
+}

@@ -1,0 +1,128 @@
+.profile{
+    display: flex;
+    justify-content: center;
+    min-height: 75vh;
+    margin: 30px 0;
+}
+
+
+
+
+
+
+
+
+
+.forms_block{
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-bottom: 10px;
+}
+
+.change_password_form{
+    margin-top: 100px;
+}
+
+.form_label{
+    margin-bottom: 5px;
+    color: #5b5b5b;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.form_input{
+    font-size: 14px;
+    background-color: #F4F4F4;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.change_pass_btn{
+    width: 500px;
+    border: none;
+    background-color: #01BD79;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 25px;
+
+    transition: all .3s;
+}
+
+.change_pass_btn:hover{
+    background-color: #009660;
+    color: #F4F4F4;
+}
+
+
+
+
+
+.username_data{
+    margin-bottom: 20px;
+}
+
+.error_msg{
+    margin: 5px 0;
+    color: red;
+}
+
+.delete_profile{
+    background-color: red;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.delete_profile:hover{
+    background-color: darkred;
+}
+
+.del_profile_btn svg path{
+    transition: all .3s;
+}
+
+.del_profile_btn svg{
+    margin-right: 5px;
+}
+
+.del_profile_btn:hover svg path{
+    fill: #cccccc;
+}
+
+.del_profile_btn{
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+}
+
+.delete_profile:hover .del_profile_btn{
+    background-color: darkred;
+    color: #cccccc;
+}
+
+.profile_data{
+    margin: 30px 0;
+}
+

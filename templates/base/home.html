@@ -1,0 +1,41 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'base/css/home.css' %}">
+
+<div class="home">
+    <div class="container">
+        <div class="home_inner">
+            <div class="info_block">
+                <h1 class="low_title">Your Smart</h1>
+                <h1 class="bold_title">Finance Counting</h1>
+                <hr class="home_hr">
+                <div class="func_block">
+                    <div class="func">
+                        <img src="{% static 'base/icons/coin.png' %}" alt="" class="block_img">
+                        <p class="block_desc">Payments</p>
+                    </div>
+                    <div class="func">
+                        <img src="{% static 'base/icons/transaction.png' %}" alt="" class="block_img">
+                        <p class="block_desc">Transactions</p>
+                    </div>
+                    <div class="func">
+                        <img src="{% static 'base/icons/history.png' %}" alt="" class="block_img">
+                        <p class="block_desc">History</p>
+                    </div>
+                </div>
+                {% if show_login_register %}
+                <a href="{% url 'signup' %}" class="create_account">Create account</a>
+                {% else %}
+                <a href="{% url 'accounts' %}" class="create_account">My accounts</a>
+                {% endif %}
+            </div>
+            <img src="{% static 'base/icons/main-min.jpg' %}" alt="" class="main_img">
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,294 @@
+.transactions{
+    margin-bottom: 50px;
+}
+
+.transaction{
+    color: #5b5b5b;
+    background-color: #F4F4F4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.transactions_block_title{
+    text-align: center;
+    font-size: 16px;
+    color: #5b5b5b;
+    border-bottom: 1px solid #F4F4F4;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.trans_info{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.trans_id{
+    flex: 0 0 15%;
+}
+
+.acc_data{
+    flex: 0 0 15%;
+    display: flex;
+    align-items: center;
+}
+
+.acc_data svg{
+    margin-right: 10px;
+}
+
+.trans_category{
+    flex: 0 0 15%;
+}
+
+.trans_amount{
+    flex: 0 0 15%;
+}
+
+.trans_comment{
+    flex: 0 0 24%;
+}
+
+.trans_date{
+    flex: 0 0 10%;
+    text-align: center;
+}
+
+.history{
+    margin: 30px 0;
+}
+
+.trans_buttons{
+    flex: 0 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.del_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F4;
+    border: none;
+}
+
+.ed_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F4;
+    border: none;
+}
+
+.del_btn svg path{
+    fill: #5b5b5b;
+    transition: all .3s;
+}
+
+.del_btn:hover svg path{
+    fill: red;
+}
+
+.ed_btn svg path{
+    fill: #5b5b5b;
+    transition: all .3s;
+}
+
+.ed_btn:hover svg path{
+    fill: #01BD79;
+}
+
+.no_trans{
+    color: #5b5b5b;
+    text-align: center;
+    margin: 50px 0;
+    font-size: 20px;
+}
+
+.no_trans_history{
+    min-height: 60vh;
+}
+
+.trans_history{
+    min-height: 80vh;
+}
+
+
+
+
+/* PAGINATION */
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.step-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-list{
+    display: flex;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.pagination-item{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #01BD79;
+    border-radius: 5px;
+
+    transition: all .3s;
+}
+
+.pagination-item:hover{
+    border-color: #009660;
+}
+
+.pagination-item:hover .pag-link{
+    color: #009660;
+}
+
+.pagination-item + .pagination-item{
+    margin-left: 5px;
+}
+
+.pag-arrow{
+    align-items: center;
+}
+
+.active-pag{
+    align-items: center;
+    padding: 2px 10px;
+    background-color: #01BD79;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+}
+
+.pag-link{
+    padding: 2px 10px;
+    color: black;
+    text-decoration: none;
+
+    transition: all .3s;
+}
+
+.arrow-img{
+    width: 10px;
+    height: 15px;
+    margin: 10px;
+}
+
+hr{
+    border: none;
+    border-bottom: 1px solid #F4F4F4;
+    margin: 30px 0;
+}
+
+
+
+
+
+
+.trans_filters{
+    margin: 30px 0;
+    border-radius: 5px;
+}
+
+.form_filter{
+    display: flex;
+    align-items: center;
+}
+
+.filter_form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter_select{
+    background-color: #F4F4F4;
+    padding: 8px 20px;
+    border: 1px solid #F4F4F4;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.between{
+    margin: 0 5px;
+}
+
+.label_filter{
+    margin-right: 10px;
+    color: #5b5b5b;
+    font-size: 14px;
+}
+
+.form_input{
+    color: #5b5b5b;
+}
+
+.search_btn svg{
+    margin-right: 5px;
+}
+
+.search_btn svg path{
+    transition: all .3s;
+}
+
+.search_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 50px;
+    background-color: #01BD79;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+
+    transition: all .3s;
+}
+
+.search_btn:hover{
+    background-color: #009660;
+    color: #cccccc;
+}
+
+.search_btn:hover svg path{
+    fill: #cccccc;
+}
+
+.output_data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #5b5b5b;
+    margin-bottom: 50px;
+}
+
+.income_value span{
+    color: #01BD79;
+}
+
+.spend_value span{
+    color: red;
+}
+

@@ -1,0 +1,204 @@
+.accounts{
+    margin: 30px 0;
+}
+
+.sec_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #F4F4F4;
+    padding: 10px 0;
+    height: 40px;
+}
+
+.back_home{
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: all .3s;
+}
+
+.back_home svg path{
+    transition: all .3s;
+}
+
+.back_home:hover{
+    color: #01BD79;
+}
+
+.back_home:hover svg path{
+    fill: #01BD79;
+}
+
+.create_payment{
+    background-color: #01BD79;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.create_payment svg path{
+    transition: all .3s;
+}
+
+.create_name{
+    transition: all .3s;
+}
+
+
+.create_payment:hover{
+    background-color: #009660;
+}
+
+.create_payment:hover .create_name{
+    color: #cccccc;
+}
+
+.create_payment:hover svg path{
+    fill: #cccccc;
+}
+
+.create_name{
+    color: white;
+    font-size: 16px;
+}
+
+.accounts_block{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.account_card{
+    position: relative;
+    flex: 0 0 calc(22% - 8px);
+    height: 180px;
+    width: 22%;
+    background-color: #01BD79;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all .3s;
+}
+
+.add_account{
+    flex: 0 0 calc(22% - 8px);
+    height: 180px;
+    width: 22%;
+    background-color: #F4F4F4;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+    padding: 20px;
+}
+
+.add_account svg path{
+    fill: #ebebeb;
+    transition: all .3s;
+}
+
+.add_account:hover svg path{
+    fill: #cccccc;
+}
+
+.card_inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    height: 100%;
+    width: auto;
+}
+
+.acc_edit{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 30px;
+    width: 35px;
+    transition: all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #01BD79;
+    border: none;
+}
+
+.acc_edit svg path{
+    fill: white;
+    transition: all .3s;
+}
+
+.acc_edit:hover svg path{
+    fill: #cccccc;
+}
+
+.acc_title{
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 39px;
+    color: #FFFFFF;
+    transition: all .3s;
+}
+
+.acc_id{
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all .3s;
+}
+
+.acc_id span{
+    font-weight: 700;
+}
+
+.acc_balance{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 39px;
+    color: #FFFFFF;
+    transition: all .3s;
+}
+
+.acc_balance strong{
+    font-weight: 700;
+}
+
+.acc_balance span{
+    font-size: 16px;
+}
+
+.more{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.more_link{
+    text-decoration: none;
+    text-align: center;
+    color: #5b5b5b;
+    padding: 10px 20px;
+    border: 1px solid #5b5b5b;
+    border-radius: 10px;
+    transition: all .3s;
+}
+
+.more_link:hover{
+    border-color: #01BD79;
+    color: #01BD79;
+}
+
+

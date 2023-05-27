@@ -1,0 +1,125 @@
+.payments{
+    margin: 30px 0;
+}
+
+.choice {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.payment_block{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0;
+  height: 50vh;
+}
+
+.payment_trigger {
+  padding: 10px 20px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+}
+
+.payment_trigger.spend{
+  border-radius: 0px 10px 10px 0px;
+}
+
+.payment_trigger.income{
+  border-radius: 10px 0px 0px 10px;
+}
+
+.payment_trigger input{
+  display: none;
+}
+
+.income.active{
+  color: #01BD79;
+  border: 1px solid #01BD79;
+}
+
+.spend.active{
+  color: red;
+  border: 1px solid red;
+}
+
+.payment_trigger .trigger_name {
+  margin-left: 5px;
+}
+
+.trans_input{
+  width: 650px;
+  font-size: 16px;
+  background-color: #F4F4F4;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin-top: 20px;
+}
+
+.d_input{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.trans_input_49{
+
+}
+.trans_input_49 select{
+  width: 340px;
+  padding: 8px 20px;
+  border: none;
+  background-color: #F4F4F4;
+  border-radius: 8px;
+  color: #5b5b5b;
+}
+
+.trans_category select{
+  width: 690px;
+  margin-top: 20px;
+  padding: 8px 20px;
+  border: none;
+  background-color: #F4F4F4;
+  border-radius: 8px;
+  color: #5b5b5b;
+}
+
+.trans_input_51 input{
+  width: 320px;
+  padding: 8px 10px;
+  border: none;
+  background-color: #F4F4F4;
+  border-radius: 7px;
+  color: #5b5b5b;
+}
+
+.trans_input_51{
+  flex: 1 1 25%;
+}
+
+.add_transaction{
+  width: 690px;
+  padding: 10px 10px;
+  margin-top: 50px;
+  transition: all .3s;
+  border: none;
+  border-radius: 10px;
+  background-color: #01BD79;
+  color: white;
+  font-size: 16px;
+}
+
+.add_transaction:hover{
+  background-color: #009660;
+}
+
+
+

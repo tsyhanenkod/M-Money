@@ -1,0 +1,74 @@
+.home{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.home_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75vh;
+}
+
+.home_hr{
+    margin: 25px 0;
+}
+
+.info_block{
+    max-width: 50%;
+}
+
+.main_img{
+    width: 50%;
+    height: auto;
+}
+
+.low_title{
+    font-size: 54px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.bold_title{
+    font-size: 54px;
+    font-weight: 700;
+    color: #01BD79;
+}
+
+.func_block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.func{
+    display: flex;
+    align-items: center;
+}
+
+.block_desc{
+    font-size: 22px;
+}
+
+.block_img{
+    height: 25px;
+    width: 25px;
+    margin-right: 7px;
+}
+
+.create_account{
+    text-decoration: none;
+    color: white;
+    background-color: #01BD79;
+    border-radius: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 10px 30px;
+    transition: all .3s;
+}
+
+.create_account:hover{
+    background-color: #009660;
+}

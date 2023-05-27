@@ -1,0 +1,135 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    color: black;
+}
+
+.l_part_logo{
+    color: #5b5b5b;
+}
+
+.r_part_logo{
+    color: white;
+    padding: 5px 10px;
+    background-color: #01BD79;
+    border-radius: 25px;
+
+}
+
+.header_inner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav_bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loging{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.between{
+    color: #5b5b5b;
+    padding: 0 5px;
+}
+
+.username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2px;
+    text-decoration: none;
+    color: #5b5b5b;
+    transition: all .3s;
+}
+
+.username_link{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.profile_img{
+    height: 20px;
+    width: 20px;
+    margin-right: 3px;
+    opacity: .6;
+}
+
+.nav_link, .login_link{
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 16px;
+    font-weight: 400;
+
+    transition: all .3s;
+}
+
+.nav_link + .nav_link{
+    margin-left: 25px;
+}
+
+.nav_link:hover{
+    color: #01BD79;
+}
+
+.username:hover{
+    color: #01BD79;
+}
+
+.profile_img path{
+    transition: all .3s;
+}
+
+.profile_img circle {
+    transition: all .3s;
+}
+
+.username:hover .profile_img path,
+.username:hover .profile_img circle {
+  fill: #01BD79;
+}
+
+.logout{
+    background-color: white;
+}
+
+.logout_link{
+    background-color: white;
+    color: #5b5b5b;
+    border: none;
+    transition: all .3s;
+}
+
+.logout_link:hover{
+    color: #01BD79;
+}
+
+.login_link{
+    font-weight: 400;
+}
+
+.login_link:hover{
+    color: #01BD79;
+}
+
+
+

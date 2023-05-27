@@ -1,0 +1,56 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/payments.css' %}">
+
+<div class="payments">
+    <div class="container">
+        <div class="payment_inner">
+            <div class="sec_nav">
+                <a href="{% url 'accounts' %}" class="back_home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5b5b5b" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                    Back
+                </a>
+            </div>
+
+            <form class="payment_block" method="post">
+                {% csrf_token %}
+                <div class="choice">
+                  <label class="payment_trigger income active" for="income">
+                    <input id="income" class="trigger_input" type="radio" name="payment_trigger" value="income" checked>
+                    <span class="trigger_name">Income</span>
+                  </label>
+                  <label class="payment_trigger spend" for="spend">
+                    <input id="spend" class="trigger_input" type="radio" name="payment_trigger" value="spend">
+                    <span class="trigger_name">Spend</span>
+                  </label>
+                </div>
+                <div>
+                     <input class="trans_input" type="number" step="any" name="amount" value="{{ form.amount.value }}" placeholder="amount">
+                </div>
+                <div>
+                    <input class="trans_input" type="text" name="comment" value="" placeholder="comment">
+                </div>
+                <div class="trans_category">
+                    {{ form.category }}
+                </div>
+                <div class="d_input">
+                    <div class="trans_input_49">
+                        {{ form.account }}
+                    </div>
+                    <div class="trans_input_51">
+                        {{ form.date }}
+                    </div>
+                </div>
+                <button class="add_transaction" type="submit">Create transaction</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'accounts/js/switch.js' %}"></script>
+{% endblock content %}

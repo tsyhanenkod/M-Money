@@ -1,0 +1,55 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/account_edit.css' %}">
+<link rel="stylesheet" href="{% static 'transactions/css/transactions.css' %}">
+
+<div class="account_edit">
+    <div class="container">
+        <div class="account_edit_iner">
+            <div class="sec_nav">
+                <a href="{% url 'accounts' %}" class="back_home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5b5b5b" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                    Back
+                </a>
+                <a class="create_payment" href="{% url 'payment' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    <h3 class="create_name">Transaction</h3>
+                </a>
+            </div>
+
+            <div class="cards">
+                <div class="editable_block" method="post">
+                    <div class="account_card" data-account-id="{{ account.id }}">
+                        <form class="card_edit" method="post">
+                            {% csrf_token %}
+                            <div class="acc_card_header">
+                                <p class="edit_label">Name:</p>
+                                <input class="acc_edit_input name-input" type="text" name="name" value="{{ account.name }}">
+                                <h6 class="acc_id"><span>ID:</span> {{ account.account_id }}</h6>
+                            </div>
+                            <div class="acc_card_header">
+                                <p class="edit_label">Balance:</p>
+                                <input class="acc_edit_input balance-input" type="number" step="any" name="balance" value="{{ account.balance }}">
+                            </div>
+                            <button class="save_btn" name="save" type="submit">Save</button>
+                        </form>
+                        <form class="delete_acc" method="post">
+                            {% csrf_token %}
+                            <button class="delete_btn" name="delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

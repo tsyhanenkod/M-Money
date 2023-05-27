@@ -1,0 +1,53 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'loging/css/login.css' %}">
+
+<div class="login">
+    <div class="container">
+        <div class="login_inner">
+            <div class="block_login">
+                <div class="welcome_block">
+                    <div href="{% url 'home' %}" class="logo">
+                        <h3 class="l_part_logo">My</h3>
+                        <h3 class="r_part_logo">Money</h3>
+                    </div>
+                </div>
+
+                <form action="" class="login_form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input class="signup-input" type="text" value="{{ form.email.value }}" name="{{ form.email.name }}" placeholder="{{ form.email.field.widget.attrs.placeholder }}" autocomplete="{{ form.email.field.widget.attrs.autocomplete }}">
+                        {% for error in form.email.errors %}
+                            <div class="error_msg">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <input class="signup-input" type="password" value="{{ form.password.value }}" name="{{ form.password.name }}" placeholder="{{ form.password.field.widget.attrs.placeholder }}" autocomplete="{{ form.password.field.widget.attrs.autocomplete }}">
+                        {% for error in form.password.errors %}
+                            <div class="error_msg">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input class="check-input" type="checkbox" name="{{ form.remember.name }}">
+                            <label class="ckeck-label">Remember me</label>
+                        </div>
+                        {% for error in form.remember.errors %}
+                            <div class="error_msg">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <button class="login_btn" type="submit">Log in</button>
+                </form>
+            </div>
+            <div class="add_links">
+                <a href="{% url 'signup' %}" class="add_link">Sign up?</a>
+                <a href="{% url 'home' %}" class="add_link">Forgot password?</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
