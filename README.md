@@ -50,7 +50,7 @@ Now you have 2 users in Database
 Admin SumSU for login in Admin Panel and Test User for login in Web-Application user account
 
     Admin SumSU 
-        login: sumdu@sumdu.sumdu 
+        login: sumdu 
         password: sumdu
 
     Test User 
